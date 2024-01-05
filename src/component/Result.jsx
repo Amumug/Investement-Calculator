@@ -11,13 +11,15 @@ export default function Result() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Year</td>
-          <td>Investment Value</td>
-          <td>Interest(Year)</td>
-          <td>Total Interest</td>
-          <td>Invested Capital</td>
-        </tr>
+        {investmentValues.map((data) => (
+          <tr key={data.year}>
+            <td>{data.year}</td>
+            <td>{data.investmentValue}</td>
+            <td>{data.interestPerYear}</td>
+            <td>{data.totalInterest}</td>
+            <td>{data.investedCapital}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
