@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState} from 'react';
 
 const InvestmentInput = ({
   setInitialInvestment,
@@ -6,20 +6,20 @@ const InvestmentInput = ({
   setExpectedReturn,
   setDuration,
 }) => {
-  const handleInitialInvestmentChange = (e) => {
-    setInitialInvestment(e.target.value);
+  const handleInitialInvestmentChange = (event) => {
+    setInitialInvestment(event.target.value);
   };
 
-  const handleAnnualInvestmentChange = (e) => {
-    setAnnualInvestment(e.target.value);
+  const handleAnnualInvestmentChange = (event) => {
+    setAnnualInvestment(event.target.value);
   };
 
-  const handleExpectedReturnChange = (e) => {
-    setExpectedReturn(e.target.value);
+  const handleExpectedReturnChange = (event) => {
+    setExpectedReturn(event.target.value);
   };
 
-  const handleDurationChange = (e) => {
-    setDuration(e.target.value);
+  const handleDurationChange = (event) => {
+    setDuration(event.target.value);
   };
 
   return (

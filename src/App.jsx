@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Header from './component/Header';
 import InvestmentInput from './component/InvestmentInput';
+import Result from './component/Result';
 
-const InvestmentCalculator = () => {
+const App = () => {
   const [initialInvestment, setInitialInvestment] = useState(0);
   const [annualInvestment, setAnnualInvestment] = useState(0);
   const [expectedReturn, setExpectedReturn] = useState(0);
@@ -46,31 +47,9 @@ const InvestmentCalculator = () => {
         setExpectedReturn={setExpectedReturn}
         setDuration={setDuration}
       />
-
-      <table id="result">
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Investment Value</th>
-            <th>Interest per Year</th>
-            <th>Total Interest</th>
-            <th>Invested Capital</th>
-          </tr>
-        </thead>
-        <tbody>
-          {investmentValues.map((data) => (
-            <tr key={data.year}>
-              <td>{data.year}</td>
-              <td>{data.investmentValue}</td>
-              <td>{data.interestPerYear}</td>
-              <td>{data.totalInterest}</td>
-              <td>{data.investedCapital}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Result investmentValues={investmentValues} />
     </div>
   );
 };
 
-export default InvestmentCalculator;
+export default App;
