@@ -11,8 +11,6 @@ const App = () => {
   const [investmentValues, setInvestmentValues] = useState([]);
   const error = 'Please Enter a postive number in duration Input'
 
-  const isInputValid = duration < 0;
-
   useEffect(() => {
     const years = parseInt(duration);
     const rate = parseFloat(expectedReturn) / 100;
@@ -51,8 +49,7 @@ const App = () => {
         setExpectedReturn={setExpectedReturn}
         setDuration={setDuration}
       />
-      {isInputValid && <p className='center'>{error}</p>}
-      <Result investmentValues={investmentValues} isInputValid={isInputValid }/>
+      <Result investmentValues={investmentValues}/>
     </div>
   );
 };

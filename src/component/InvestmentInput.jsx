@@ -56,6 +56,7 @@ const InvestmentInput = ({
           <input
             type="number"
             onChange={handleDurationChange}
+            min={0}
             required
           />
         </p>
