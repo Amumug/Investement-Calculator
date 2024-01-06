@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Result = ({ investmentValues }) => {
+const Result = ({ investmentValues, isInputValid }) => {
   return (
     <table id="result">
-      <thead>
+      {!isInputValid && <thead >
         <tr>
           <th>Year</th>
           <th>Investment Value</th>
@@ -11,7 +11,7 @@ const Result = ({ investmentValues }) => {
           <th>Total Interest</th>
           <th>Invested Capital</th>
         </tr>
-      </thead>
+      </thead>}
       <tbody>
         {investmentValues.map((data) => (
           <tr key={data.year}>

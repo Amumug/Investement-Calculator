@@ -7,8 +7,11 @@ const App = () => {
   const [initialInvestment, setInitialInvestment] = useState(0);
   const [annualInvestment, setAnnualInvestment] = useState(0);
   const [expectedReturn, setExpectedReturn] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [duration, setDuration] = useState();
   const [investmentValues, setInvestmentValues] = useState([]);
+  const error = 'Please Enter a postive number in duration Input'
+
+  const isInputValid = duration < 0;
 
   useEffect(() => {
     const years = parseInt(duration);
@@ -33,6 +36,7 @@ const App = () => {
         totalInterest: totalInterestAccumulated.toFixed(2),
         investedCapital: investedAmount.toFixed(2),
       });
+
     }
 
     setInvestmentValues(data);
@@ -47,7 +51,8 @@ const App = () => {
         setExpectedReturn={setExpectedReturn}
         setDuration={setDuration}
       />
-      <Result investmentValues={investmentValues} />
+      {isInputValid && <p className='center'>{error}</p>}
+      <Result investmentValues={investmentValues} isInputValid={isInputValid }/>
     </div>
   );
 };
